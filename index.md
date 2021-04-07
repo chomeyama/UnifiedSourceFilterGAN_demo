@@ -19,10 +19,10 @@ This page is the demo of
 [QPPWG_demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo/)  
 
 ## **Architecture of uSFGAN**
-<center><img src="res/figure/uSFGAN.jpg" style="display:block;width:500px;height:250px"></center>  
+<center><img src="res/figure/uSFGAN.jpg"></center>  
 
 ## **Generator of uSFGAN**
-<center><img src="res/figure/uSFGAN_Generator.jpg" style="display:block;width:500px;height:250px"></center>  
+<center><img src="res/figure/uSFGAN_G.jpg"></center>  
     
 ## **Non-AR PDCNN ([QPNet](https://bigpon.github.io/QuasiPeriodicWaveNet_demo/), [QPPWG_demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo/))**  
 <center><img src="res/figure/PDCNN.svg" style="display:block;width:500px;height:250px"></center>  
@@ -69,7 +69,7 @@ This page is the demo of
 - MOS results of speech quality  
 <center><img src="res/figure/MOS.jpg" ></center>  
 - XAB results of pitch accuracy  
-<center><img src="res/figure/XAB.jpg" style="display:block;width:400px;height:300px"></center>
+<center><img src="res/figure/XAB.jpg" ></center>
   
 <br /> 
 
