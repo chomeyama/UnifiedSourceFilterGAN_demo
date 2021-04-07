@@ -2,25 +2,29 @@
 layout: default
 ---
 This page is the demo of 
-1. "Quasi-periodic parallel WaveGAN: a non-autoregressive raw waveform generative model with pitch-dependent dilated convolution neural networks" [[paper](https://arxiv.org/abs/2007.12955)] [[code](https://github.com/bigpon/QPPWG)] [[YouTube](https://youtu.be/nRahlEgywjg)] [[Medium](https://medium.com/@bigpon517/2020-speech-generation-1-quasi-periodic-waveform-generative-model-with-pitch-dependent-dilated-792261d96aba)]  
-2. "Quasi-periodic parallel WaveGAN vocoder: a non-autoregressive pitch-dependent dilated convolution model for parametric speech generation" [[paper](https://isca-speech.org/archive/Interspeech_2020/pdfs/1070.pdf)] [[highlight](https://youtu.be/rmENecC-0wE)] [[fullVideo](https://youtu.be/yY4WOtPIH-4)]
+1. "Unified Source-Filter GAN: Unified Source-Filter Network Based On Factorization of Quasi-Periodic Parallel WaveGAN"  [[code](https://github.com/chomeyama/UnifiedSourceFilterGAN)]
 
 ## **Abstract**  
-<p align="justify"> We propose a <b>Quasi-Periodic Parallel WaveGAN (QPPWG)</b> waveform generative model, which applies a quasi-periodic (QP) structure to a parallel WaveGAN (PWG) model using pitch-dependent dilated convolution networks (PDCNNs). PWG is a compact GAN-based raw waveform generative model, whose generation time is much faster than realtime because of its non-autoregressive (non-AR) and non-causal mechanisms. Although PWG achieves a high fidelity speech generation, the generic and simple network architecture lacks pitch-controllability for the unseen auxiliary pitches such as a scaled pitch. To improve the pitch and speech modeling capability, we apply a QP structure with PDCNNs to the generator of PWG, and it introduces pitch information to the network by dynamically changing the network architecture corresponding to the auxiliary pitches. </p>
+<p align="justify"> We propose a unified approach to data-driven source-filter modeling using a single neural network for developing a neural vocoder capable of generating high-quality synthetic speech waveforms while retaining flexibility of the source-filter model to control their voice characteristics. Our proposed network called <b>unified source-filter generative adversarial networks (uSFGAN)</b> is developed by factorizing quasi-periodic parallel WaveGAN (QPPWG), one of the neural vocoders based on a single neural network, into a source excitation generation network and a vocal tract resonance filtering network by additionally implementing a regularization loss. Moreover, inspired by neural source filter (NSF), only a sinusoidal waveform is additionally used as the simplest clue to generate a periodic source excitation waveform while minimizing the effect of approximations in the source filter model. The experimental results demonstrate that uSFGAN outperforms conventional neural vocoders, such as QPPWG and NSF in both speech quality and pitch controllability. </p>
 
 **Corpus and references:**  
+[CMU-ARCTIC](http://www.festvox.org/cmu_arctic/)  
 [VCC2018](http://www.vc-challenge.org/)  
+[NSF](https://www.isca-speech.org/archive/SSW_2019/abstracts/SSW10_O_1-1.html)
+[NSF_demo](https://nii-yamagishilab.github.io/samples-nsf/nsf-v3.html)
 [PWG](https://ieeexplore.ieee.org/abstract/document/9053795)  
 [PWG_repo](https://github.com/kan-bayashi/ParallelWaveGAN)  
-[QPNet](https://bigpon.github.io/QuasiPeriodicWaveNet_demo/)  
+[QPNet](https://bigpon.github.io/QuasiPeriodicWaveNet_demo/)      
+[QPPWG](https://ieeexplore.ieee.org/document/93249760)  
+[QPPWG_demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo/)  
 
-## **Architecture of PWG/QPPWG**  
-<center><img src="res/figure/PWG.svg" style="display:block;width:370px;height:320px"></center>
+## **Architecture of uSFGAN**
+<center><img src="res/figure/uSFGAN.svg" style="display:block;width:500px;height:250px"></center>  
 
-## **Generator of QPPWG**  
-<center><img src="res/figure/QPPWG_G.svg" style="display:block;width:500px;height:370px"></center>  
+## **Generator of uSFGAN**
+<center><img src="res/figure/uSFGAN_Generator.svg" style="display:block;width:500px;height:250px"></center>  
     
-## **Non-AR PDCNN**  
+## **Non-AR PDCNN ([QPNet](https://bigpon.github.io/QuasiPeriodicWaveNet_demo/), [QPPWG_demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo/))**  
 <center><img src="res/figure/PDCNN.svg" style="display:block;width:500px;height:250px"></center>  
   
 ## **Demo Sounds**
@@ -38,13 +42,10 @@ This page is the demo of
 | QPPWG_16<sup> *7</sup> | <audio src="res/audio/SF3/1_0_F0/QPPWG_16/30013.wav" controls preload></audio> | <audio src="res/audio/SM3/1_0_F0/QPPWG_16/30017.wav" controls preload></audio> |
 
 <sup>*1. `WORLD: Baseline I` </sup>  
-<sup>*2. `QPNet: Baseline II` </sup>  
-<sup>*3. `PWG_30: PWG vocoder with 30 fixed blocks` </sup>   
-<sup>*4. `PWG_20: PWG vocoder with 20 fixed blocks` </sup>  
-<sup>*5. `QPPWG_20: QPPWG vocoder with 10 adaptive blocks + 10 fixed blocks` </sup>  
-<sup>*6. `PWG_16: PWG vocoder with 16 fixed blocks` </sup>  
-<sup>*7. `QPPWG_16: QPPWG vocoder with 8 adaptive blocks + 8 fixed blocks` </sup>  
- 
+<sup>*2. `NSF: Neural Source-Filter vocoder of hn-sinc-nsf9` </sup>  
+<sup>*3. `QPPWG_20: QPPWG vocoder with 10 adaptive blocks + 10 fixed blocks` </sup>  
+<sup>*4. `uSFGAN_60: uSFGAN vocoder with source-network of 30 adaptive blocks + filter-network of 30 fixed blocks` </sup>  
+
 <br />  
 - Conditioned on **&frac12;**&times;*F*<sub>0</sub>
 
@@ -178,7 +179,7 @@ Furthermore, the audio files of the QPPWG intermediate outputs are also provided
 <p align="justify"> The cumulative outputs of the adaptive blocks are excitation-signal-like and highly pitch-dependent while that of the fixed blocks are spectral-related and less pitch-dependent. The results confirm our assumption that that the adaptive blocks with the PDCNNs primarily model the pitch-related speech components with the long-term correlations while the fixed blocks with the DCNNs mainly focus on the spectral-related speech components with the short-term correlations. </p>
 
 <br /> 
-[Home](https://bigpon.github.io/)
+[Home](https://github.com/chomeyama/)
 
 <br />  
 <br />  
