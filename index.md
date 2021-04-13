@@ -2,14 +2,13 @@
 layout: default
 ---
 This page is the demo of 
-1. "Unified Source-Filter GAN: Unified Source-Filter Network Based On Factorization of Quasi-Periodic Parallel WaveGAN"  [[code](https://github.com/chomeyama/UnifiedSourceFilterGAN)]
+1. "Unified Source-Filter GAN: Unified Source-Filter Network Based On Factorization of Quasi-Periodic Parallel WaveGAN" [[paper](https://arxiv.org/abs/2104.04668)]  [[code](https://github.com/chomeyama/UnifiedSourceFilterGAN)]
 
 ## **Abstract**  
 <p align="justify"> We propose a unified approach to data-driven source-filter modeling using a single neural network for developing a neural vocoder capable of generating high-quality synthetic speech waveforms while retaining flexibility of the source-filter model to control their voice characteristics. Our proposed network called <b>unified source-filter generative adversarial networks (uSFGAN)</b> is developed by factorizing quasi-periodic parallel WaveGAN (QPPWG), one of the neural vocoders based on a single neural network, into a source excitation generation network and a vocal tract resonance filtering network by additionally implementing a regularization loss. Moreover, inspired by neural source filter (NSF), only a sinusoidal waveform is additionally used as the simplest clue to generate a periodic source excitation waveform while minimizing the effect of approximations in the source filter model. The experimental results demonstrate that uSFGAN outperforms conventional neural vocoders, such as QPPWG and NSF in both speech quality and pitch controllability. </p>
 
 **Corpus and references:**  
 [CMU-ARCTIC](http://www.festvox.org/cmu_arctic/)  
-[VCC2018](http://www.vc-challenge.org/)  
 [NSF](https://www.isca-speech.org/archive/SSW_2019/abstracts/SSW10_O_1-1.html)  
 [NSF_demo](https://nii-yamagishilab.github.io/samples-nsf/nsf-v3.html)  
 [PWG](https://ieeexplore.ieee.org/abstract/document/9053795)  
