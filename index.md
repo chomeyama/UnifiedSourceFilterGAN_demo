@@ -20,8 +20,6 @@ This page is the demo of
 [QPPWG](https://ieeexplore.ieee.org/document/93249760)
 [QPPWG_demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo/)
 
-<br />
-
 ## **Architecture of uSFGAN**
 
 <center><img src="res/figure/uSFGAN.jpg" style="display:block;width:520px;height:300px"></center>
