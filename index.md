@@ -4,7 +4,7 @@ layout: default
 
 This page is the demo of
 
-1. "Unified Source-Filter GAN: Unified Source-Filter Network Based On Factorization of Quasi-Periodic Parallel WaveGAN" [[paper](https://arxiv.org/abs/2104.04668)] [[code](https://github.com/chomeyama/UnifiedSourceFilterGAN)]
+"Unified Source-Filter GAN: Unified Source-Filter Network Based On Factorization of Quasi-Periodic Parallel WaveGAN" [[paper](https://arxiv.org/abs/2104.04668)] [[code](https://github.com/chomeyama/UnifiedSourceFilterGAN)]
 
 ## **Abstract**
 
