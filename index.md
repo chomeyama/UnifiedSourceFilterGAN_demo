@@ -22,13 +22,13 @@ This page is the demo of
 
 ## **Architecture of uSFGAN**
 
-<center><img src="res/figure/uSFGAN.jpg" style="display:block;width:520px;height:300px"></center>
+<center><img src="res/figure/usfgan.svg" style="display:block;width:520px;height:300px"></center>
 
 <br />
 
 ## **Generator of uSFGAN**
 
-<center><img src="res/figure/uSFGAN_G.jpg" style="display:block;width:500px;height300px"></center>
+<center><img src="res/figure/usfgan_g.svg" style="display:block;width:500px;height300px"></center>
 
 <br />
 
